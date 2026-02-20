@@ -42,7 +42,8 @@ namespace car
                     }
                     else
                     {
-                        MessageBox.Show("Введнные значение не должны быть отрицательными!\nКоличнство бензина и пробег могут быть равны 0.\nКоличество бензина не должно превышать объем бака", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Введнные значение не должны быть отрицательными!\nведнные значение не должны быть отрицательными!" +
+                            "\nКоличество бензина не должно превышать объем бака", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 else
@@ -192,6 +193,87 @@ namespace car
             catch (Exception ex)
             {
                 MessageBox.Show("Введите корректное расстояние", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void buttonChecThisCar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (amountCars < 0)
+                {
+                    if (cars[0].NeedPetrol())
+                    {
+                        answer.Text = "Да";
+                    }
+                    else
+                    {
+                        answer.Text = "Нет";
+                    }
+                }
+                else
+                {
+                    if (cars[amountCars].NeedPetrol())
+                    {
+                        answer.Text = "Да";
+                    }
+                    else
+                    {
+                        answer.Text = "Нет";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void buttonChecSelectedCar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int index = RecordsOfCars.CurrentCell.RowIndex;
+                if (index >= 0 && index < cars.Length && cars[index] != null)
+                {
+                    if (cars[index].NeedPetrol())
+                    {
+                        answer.Text = "Да";
+                    }
+                    else
+                    {
+                        answer.Text = "Нет";
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Выберите автомобиль в таблице", "Выбор!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void RecordsOfCars_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                int index = RecordsOfCars.CurrentCell.RowIndex;
+                if (index >= 0 && index < cars.Length && cars[index] != null)
+                {
+                    MessageBox.Show(cars[index].CarInfo(), $"Автомобиль {index + 1}",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Выберите автомобиль в таблице", "Выбор!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ошибка", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

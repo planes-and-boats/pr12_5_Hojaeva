@@ -31,7 +31,8 @@ namespace car
             }
             else
             {
-                System.Windows.Forms.MessageBox.Show("Объем бака должен быть\nположительным и больше 0!", "Error", System.Windows.Forms.MessageBoxButtons.OK,
+                System.Windows.Forms.MessageBox.Show("Объем бака должен быть\nположительным и больше 0!",
+                    "Error", System.Windows.Forms.MessageBoxButtons.OK,
                     System.Windows.Forms.MessageBoxIcon.Error);
             }
         }
@@ -47,7 +48,8 @@ namespace car
             }
             else
             {
-                System.Windows.Forms.MessageBox.Show("Количество бензина должен быть\nположительным, больше 0\nи не превышать объем бака!", "Error", System.Windows.Forms.MessageBoxButtons.OK,
+                System.Windows.Forms.MessageBox.Show("Количество бензина должен быть\nположительным, больше 0" +
+                    "\nи не превышать объем бака!", "Error", System.Windows.Forms.MessageBoxButtons.OK,
                     System.Windows.Forms.MessageBoxIcon.Error);
             }
         }
@@ -63,7 +65,8 @@ namespace car
             }
             else
             {
-                System.Windows.Forms.MessageBox.Show("Потребление бензина должено быть\nположительным и больше 0!", "Error", System.Windows.Forms.MessageBoxButtons.OK,
+                System.Windows.Forms.MessageBox.Show("Потребление бензина должено быть" +
+                    "\nположительным и больше 0!", "Error", System.Windows.Forms.MessageBoxButtons.OK,
                     System.Windows.Forms.MessageBoxIcon.Error);
             }
         }
@@ -79,16 +82,17 @@ namespace car
             }
             else
             {
-                System.Windows.Forms.MessageBox.Show("Количество бензина должен быть положительным!", "Error", System.Windows.Forms.MessageBoxButtons.OK,
+                System.Windows.Forms.MessageBox.Show("Количество бензина должен быть положительным!",
+                    "Error", System.Windows.Forms.MessageBoxButtons.OK,
                     System.Windows.Forms.MessageBoxIcon.Error);
             }
         }
         public string CarInfo()
         {
-            return String.Format("Объем бака: \t{0:F2} л" +
+            return String.Format("Объем бака: \t\t\t{0:F2} л" +
                 "\nКоличество бензина в баке: \t{1:F2} л" +
-                "\nРасход бензина на 100 км: \t{2:F2} л" +
-                "\nПробег автомобиля: \t{3:F2} км", tankVolume, petrolVolume, expenses, mileage);
+                "\nРасход бензина на 100 км: \t\t{2:F2} л" +
+                "\nПробег автомобиля: \t\t{3:F2} км", tankVolume, petrolVolume, expenses, mileage);
         }
         public double FillCarUp(double liters)
         {
@@ -106,7 +110,7 @@ namespace car
         }
         public bool NeedPetrol()
         {
-            return petrolVolume < (petrolVolume * 0.1);
+            return petrolVolume < (tankVolume * 0.1);
         }
         public void Drive(double wholeWay)
         {
@@ -117,7 +121,8 @@ namespace car
                 mileage += feasibleWay;
                 petrolVolume = 0;
                 System.Windows.Forms.MessageBox.Show($"Бензина хватило только на {feasibleWay:F2} км." +
-                    $"\nНе доехали {sliceOfWay:F2} км.", "Бензин кончился!", System.Windows.Forms.MessageBoxButtons.OK,
+                    $"\nНе доехали {sliceOfWay:F2} км.", "Бензин кончился!",
+                    System.Windows.Forms.MessageBoxButtons.OK,
                     System.Windows.Forms.MessageBoxIcon.Information);
             }
             else
@@ -131,7 +136,8 @@ namespace car
                     int dif = thousandsAfter - thousandsBefore;
                     expenses += 0.1 * dif;
                     System.Windows.Forms.MessageBox.Show($"Пробег превысил {thousandsAfter * 1000} км." +
-                    $"\nРасход увеличен до {expenses:F2} л на 100 км.", "Износ двигателя!", System.Windows.Forms.MessageBoxButtons.OK,
+                    $"\nРасход увеличен до {expenses:F2} л на 100 км.", "Износ двигателя!",
+                    System.Windows.Forms.MessageBoxButtons.OK,
                     System.Windows.Forms.MessageBoxIcon.Information);
                 }
             }

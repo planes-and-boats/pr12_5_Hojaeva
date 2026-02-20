@@ -55,10 +55,15 @@ namespace car
             this.label8 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.buttonChecSelectedCar = new System.Windows.Forms.Button();
+            this.buttonChecThisCar = new System.Windows.Forms.Button();
+            this.answer = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RecordsOfCars)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -191,6 +196,7 @@ namespace car
             this.RecordsOfCars.RowHeadersWidth = 160;
             this.RecordsOfCars.Size = new System.Drawing.Size(565, 317);
             this.RecordsOfCars.TabIndex = 11;
+            this.RecordsOfCars.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.RecordsOfCars_CellContentClick);
             // 
             // buttonOutput
             // 
@@ -323,12 +329,56 @@ namespace car
             this.label7.TabIndex = 18;
             this.label7.Text = "Введите расстояние:";
             // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.answer);
+            this.groupBox4.Controls.Add(this.buttonChecSelectedCar);
+            this.groupBox4.Controls.Add(this.buttonChecThisCar);
+            this.groupBox4.Location = new System.Drawing.Point(1088, 35);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(182, 361);
+            this.groupBox4.TabIndex = 19;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Надо ли заправиться?";
+            // 
+            // buttonChecSelectedCar
+            // 
+            this.buttonChecSelectedCar.BackColor = System.Drawing.Color.Gold;
+            this.buttonChecSelectedCar.Location = new System.Drawing.Point(6, 154);
+            this.buttonChecSelectedCar.Name = "buttonChecSelectedCar";
+            this.buttonChecSelectedCar.Size = new System.Drawing.Size(168, 57);
+            this.buttonChecSelectedCar.TabIndex = 24;
+            this.buttonChecSelectedCar.Text = "Проверить выбраную машину!";
+            this.buttonChecSelectedCar.UseVisualStyleBackColor = false;
+            this.buttonChecSelectedCar.Click += new System.EventHandler(this.buttonChecSelectedCar_Click);
+            // 
+            // buttonChecThisCar
+            // 
+            this.buttonChecThisCar.BackColor = System.Drawing.Color.Gold;
+            this.buttonChecThisCar.Location = new System.Drawing.Point(6, 64);
+            this.buttonChecThisCar.Name = "buttonChecThisCar";
+            this.buttonChecThisCar.Size = new System.Drawing.Size(168, 57);
+            this.buttonChecThisCar.TabIndex = 23;
+            this.buttonChecThisCar.Text = "Проверить текущую машину!";
+            this.buttonChecThisCar.UseVisualStyleBackColor = false;
+            this.buttonChecThisCar.Click += new System.EventHandler(this.buttonChecThisCar_Click);
+            // 
+            // answer
+            // 
+            this.answer.AutoSize = true;
+            this.answer.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.answer.Location = new System.Drawing.Point(70, 277);
+            this.answer.Name = "answer";
+            this.answer.Size = new System.Drawing.Size(0, 29);
+            this.answer.TabIndex = 25;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Azure;
-            this.ClientSize = new System.Drawing.Size(1200, 692);
+            this.ClientSize = new System.Drawing.Size(1278, 692);
+            this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.buttonOutput);
@@ -345,6 +395,8 @@ namespace car
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -377,6 +429,10 @@ namespace car
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button buttonRefuelSelectedCar;
         private System.Windows.Forms.Button buttonDriveSelected;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Button buttonChecSelectedCar;
+        private System.Windows.Forms.Button buttonChecThisCar;
+        private System.Windows.Forms.Label answer;
     }
 }
 
